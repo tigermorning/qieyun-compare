@@ -440,6 +440,44 @@ sino-korean
 
 ---
 
+## D16: Scope — Middle Chinese Only
+
+**Date:** Data Audit phase
+
+**Context:** During the Data Audit, we discovered that some of the originally planned systems (Zhengzhang 2002, Baxter-Sagart 2014) are Old Chinese (上古音) reconstructions, not Middle Chinese (中古音) reconstructions. This raised the question of whether the project should compare both OC and MC, or focus on MC only.
+
+**Key difference between MC and OC comparison:**
+- **MC comparison:** All characters with the same phonological position (母, 韻, 等, 開合, 聲) receive the same IPA from a given reconstruction system. This is rule-based.
+- **OC comparison:** Characters with the same MC phonological position may receive different OC reconstructions. This requires character-level data, not just phonological position-level rules.
+
+**Alternatives considered:**
+
+| Alternative | Description |
+|------------|-------------|
+| **A: MC + OC** | Compare both Middle Chinese and Old Chinese reconstructions in the same tool |
+| **B: MC only** | Focus exclusively on Middle Chinese reconstructions; defer OC to a future project |
+
+**Decision:** Alternative B — Middle Chinese only.
+
+**Reasoning:**
+1. **Scope clarity.** MC comparison is well-defined and achievable with existing derivation scripts.
+2. **Data availability.** MC reconstruction systems have derivation scripts in tshet-uinh-examples. OC systems do not.
+3. **Complexity.** OC comparison requires character-level data, which is fundamentally different from MC's phonological position-level approach.
+4. **MVP speed.** Focusing on MC allows faster delivery of a working tool.
+5. **Future expansion.** OC comparison can be a separate project (`qieyun-oc`) that builds on the MC tool.
+
+**Consequences:**
+- systems.json is updated to exclude Zhengzhang 2002, Baxter-Sagart 2014, and Pulleyblank 1991 (no derivation script).
+- Default systems are: Baxter (1992), Pan (2000), unt, msoeg.
+- Documentation is updated to reflect the MC-only scope.
+- A future project (`qieyun-oc`) can handle OC comparisons.
+
+**Future consideration:**
+- If OC derivation scripts become available (e.g., through tshet-uinh-examples), they can be added to this project.
+- The UI should be designed to accommodate OC systems in the future, even if they are not included in the MVP.
+
+---
+
 ## Unresolved Decisions
 
 The following questions remain open and should be revisited during implementation:
