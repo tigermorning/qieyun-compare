@@ -1,0 +1,206 @@
+{
+  "name": "qieyun-compare",
+  "version": "1.0.0",
+  "description": "Comparing Middle Chinese Phonological Reconstruction Systems",
+  "systems": [
+    {
+      "id": "baxter1992",
+      "name": "Baxter (1992)",
+      "author": "William H. Baxter",
+      "year": 1992,
+      "title": "A Handbook of Old Chinese Phonology",
+      "publisher": "Mouton de Gruyter",
+      "type": "notation",
+      "language": "en",
+      "derivationScript": "baxter",
+      "derivationOptions": { "版本": "1992" },
+      "default": true,
+      "citation": {
+        "type": "book",
+        "author": "Baxter, William H.",
+        "title": "A Handbook of Old Chinese Phonology",
+        "publisher": "Mouton de Gruyter",
+        "address": "Berlin",
+        "year": 1992
+      }
+    },
+    {
+      "id": "pan2000",
+      "name": "Pan (2000)",
+      "author": "Pan Wuyun (潘悟雲)",
+      "year": 2000,
+      "title": "漢語歷史音韻學",
+      "publisher": "上海教育出版社",
+      "type": "reconstruction",
+      "language": "zh",
+      "derivationScript": "panwuyun",
+      "derivationOptions": {},
+      "default": true,
+      "citation": {
+        "type": "book",
+        "author": "潘悟雲",
+        "title": "漢語歷史音韻學",
+        "publisher": "上海教育出版社",
+        "year": 2000
+      }
+    },
+    {
+      "id": "unt",
+      "name": "unt",
+      "author": "unt",
+      "year": null,
+      "title": "unt's Reconstruction",
+      "publisher": null,
+      "type": "reconstruction",
+      "language": "en",
+      "derivationScript": "unt",
+      "derivationOptions": {},
+      "default": true,
+      "citation": {
+        "type": "misc",
+        "author": "unt",
+        "title": "unt's Reconstruction of the Qieyun System",
+        "year": null,
+        "url": "https://github.com/untunt"
+      }
+    },
+    {
+      "id": "msoeg",
+      "name": "msoeg",
+      "author": "msoeg",
+      "year": null,
+      "title": "msoeg's Reconstruction V8",
+      "publisher": null,
+      "type": "reconstruction",
+      "language": "en",
+      "derivationScript": "msoeg_v8",
+      "derivationOptions": {},
+      "default": true,
+      "citation": {
+        "type": "misc",
+        "author": "msoeg",
+        "title": "msoeg's Reconstruction of the Qieyun System V8",
+        "year": null,
+        "url": "https://github.com/nk2028"
+      }
+    },
+    {
+      "id": "zhengzhang2002",
+      "name": "Zhengzhang (2002)",
+      "author": "Zhengzhang Shangfang (鄭張尚芳)",
+      "year": 2002,
+      "title": "上古音系",
+      "publisher": "上海教育出版社",
+      "type": "reconstruction",
+      "language": "zh",
+      "derivationScript": null,
+      "derivationOptions": null,
+      "default": false,
+      "note": "No derivation script available. Custom implementation required.",
+      "citation": {
+        "type": "book",
+        "author": "鄭張尚芳",
+        "title": "上古音系",
+        "publisher": "上海教育出版社",
+        "year": 2002
+      }
+    },
+    {
+      "id": "baxtersagart2014",
+      "name": "Baxter-Sagart (2014)",
+      "author": "William H. Baxter and Laurent Sagart",
+      "year": 2014,
+      "title": "Old Chinese: A New Reconstruction",
+      "publisher": "Oxford University Press",
+      "type": "reconstruction",
+      "language": "en",
+      "derivationScript": null,
+      "derivationOptions": null,
+      "default": false,
+      "note": "No derivation script available. Custom implementation required.",
+      "citation": {
+        "type": "book",
+        "author": "Baxter, William H. and Sagart, Laurent",
+        "title": "Old Chinese: A New Reconstruction",
+        "publisher": "Oxford University Press",
+        "address": "New York",
+        "year": 2014
+      }
+    },
+    {
+      "id": "wangli1957",
+      "name": "Wang Li (1957)",
+      "author": "Wang Li (王力)",
+      "year": 1957,
+      "title": "漢語史稿",
+      "publisher": "科學出版社",
+      "type": "reconstruction",
+      "language": "zh",
+      "derivationScript": "wangli",
+      "derivationOptions": {},
+      "default": false,
+      "note": "Available via derivation script, but not included in defaults.",
+      "citation": {
+        "type": "book",
+        "author": "王力",
+        "title": "漢語史稿",
+        "publisher": "科學出版社",
+        "year": 1957
+      }
+    },
+    {
+      "id": "pulleyblank1991",
+      "name": "Pulleyblank (1991)",
+      "author": "Edwin G. Pulleyblank",
+      "year": 1991,
+      "title": "Lexicon of Reconstructed Pronunciation in Early Middle Chinese, Late Middle Chinese, and Early Mandarin",
+      "publisher": "University of British Columbia Press",
+      "type": "reconstruction",
+      "language": "en",
+      "derivationScript": null,
+      "derivationOptions": null,
+      "default": false,
+      "note": "No derivation script available. Custom implementation required.",
+      "citation": {
+        "type": "book",
+        "author": "Pulleyblank, Edwin G.",
+        "title": "Lexicon of Reconstructed Pronunciation in Early Middle Chinese, Late Middle Chinese, and Early Mandarin",
+        "publisher": "University of British Columbia Press",
+        "year": 1991
+      }
+    },
+    {
+      "id": "karlgren",
+      "name": "Karlgren",
+      "author": "Bernhard Karlgren",
+      "year": null,
+      "title": "Karlgren's Reconstruction",
+      "publisher": null,
+      "type": "reconstruction",
+      "language": "en",
+      "derivationScript": "karlgren",
+      "derivationOptions": {},
+      "default": false,
+      "note": "Available via derivation script, but not included in defaults.",
+      "citation": {
+        "type": "book",
+        "author": "Karlgren, Bernhard",
+        "title": "Phonologie Chinoise",
+        "publisher": "Bibliotheca Indica",
+        "year": 1915
+      }
+    }
+  ],
+  "defaults": ["baxter1992", "pan2000", "unt", "msoeg"],
+  "historicalOrder": [
+    "karlgren",
+    "wangli1957",
+    "pulleyblank1991",
+    "baxter1992",
+    "pan2000",
+    "zhengzhang2002",
+    "baxtersagart2014",
+    "unt",
+    "msoeg"
+  ]
+}
