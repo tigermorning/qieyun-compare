@@ -1,18 +1,53 @@
-/* Pulleyblank 擬音
- *
- * 擬音來自：
- *
- * - Pulleyblank, E. G. (1991). Lexicon of Reconstructed Pronunciation in
- *   Early Middle Chinese, Late Middle Chinese, and Early Mandarin.
- *   Vancouver: University of British Columbia Press.
- *
- * - Pulleyblank, E. G. (1984). Middle Chinese: A Study in Historical
- *   Phonology. Vancouver: University of British Columbia Press.
- *
- * 以及 Wiktionary 整理：
- * https://en.wiktionary.org/wiki/Appendix:Middle_Chinese
- *
+/**
+ * Pulleyblank 중고음 재건 스크립트
+ * 
+ * ================================================================================
+ * 데이터 출처 (Data Sources)
+ * ================================================================================
+ * 
+ * 1차 출처 (Primary):
+ *    Pulleyblank, E. G. (1991). Lexicon of Reconstructed Pronunciation in
+ *    Early Middle Chinese, Late Middle Chinese, and Early Mandarin.
+ *    Vancouver: University of British Columbia Press.
+ * 
+ * 2차 출처 (Secondary):
+ *    Pulleyblank, E. G. (1984). Middle Chinese: A Study in Historical
+ *    Phonology. Vancouver: University of British Columbia Press.
+ * 
+ * 데이터 정리 (Data Compilation):
+ *    Wiktionary Appendix:Middle Chinese
+ *    https://en.wiktionary.org/wiki/Appendix:Middle_Chinese
+ * 
+ * ================================================================================
+ * 검증 상태 (Validation Status)
+ * ================================================================================
+ * 
+ * - Zhengzhang (2002)과 비교: 검증 필요
+ * - Pan (2000)과 비교: 검증 필요
+ * - Baxter (1992)과 비교: 검증 필요
+ * 
+ * 자세한 내용은 validate-pulleyblank.js 및 docs/pulleyblank-validation.md 참조
+ * 
+ * ================================================================================
+ * 알려진 한계 (Known Limitations)
+ * ================================================================================
+ * 
+ * 1. Wiktionary 데이터 기반: 학술 비교표에서 추출한 데이터 사용
+ * 2. 규칙 기반 도출 미포함:.lookup 테이블 방식
+ * 3. 중설 모음 처리: Pulleyblank 고유의 /ɨ/ 시스템 적용
+ * 4. 重紐 구분: A/B 구분이 일부 제한적
+ * 
+ * ================================================================================
+ * 인용 (Citation)
+ * ================================================================================
+ * 
+ * Pulleyblank, E. G. (1991). Lexicon of Reconstructed Pronunciation in
+ * Early Middle Chinese, Late Middle Chinese, and Early Mandarin.
+ * Vancouver: University of British Columbia Press.
+ * 
  * @author qieyun-compare
+ * @version 1.0.0
+ * @license MIT
  */
 
 /** @type { 音韻地位['屬於'] } */

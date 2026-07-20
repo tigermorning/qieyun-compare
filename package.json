@@ -1,0 +1,32 @@
+{
+  "name": "qieyun-compare",
+  "version": "1.0.0",
+  "description": "Comparing Middle Chinese Phonological Reconstruction Systems",
+  "main": "index.js",
+  "scripts": {
+    "validate": "node validate-pulleyblank.js",
+    "validate:watch": "nodemon validate-pulleyblank.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tigermorning/qieyun-compare.git"
+  },
+  "keywords": [
+    "middle-chinese",
+    "qieyun",
+    "historical-phonology",
+    "comparative-linguistics",
+    "digital-humanities",
+    "sino-korean"
+  ],
+  "author": "tigermorning",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tigermorning/qieyun-compare/issues"
+  },
+  "homepage": "https://github.com/tigermorning/qieyun-compare#readme",
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}
