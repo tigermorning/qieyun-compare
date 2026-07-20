@@ -1,5 +1,5 @@
 /**
- * 중고음 재건 비교 애플리케이션
+ * Middle Chinese Reconstruction Comparison Application
  */
 
 import { systems } from './systems.json';
@@ -11,31 +11,102 @@ import panwuyun from './panwuyun.js';
 import zhengzhang from './zhengzhang.js';
 
 /**
- * 재건 스크립트 매핑
+ * Reconstruction script mapping (ID → script)
  */
 const reconstructionScripts = {
   karlgren,
-  wangli,
-  pulleyblank,
-  baxter,
-  panwuyun,
+  wangli1957: wangli,
+  pulleyblank1991: pulleyblank,
+  baxter1992: baxter,
+  pan2000: panwuyun,
   zhengzhang,
 };
 
 /**
- * 기본 비교 체계
+ * Default comparison systems
  */
 const defaultSystems = systems.filter(s => s.default);
 
 /**
- * 음운 위치 문자열 생성
+ * Generate phonological position string in English
  */
 function getPositionString(tone, rime, division, rounding) {
-  return `${tone}聲 ${rime}韻 ${division}等 ${rounding}`;
+  const toneMap = { '平': 'Level', '上': 'Rising', '去': 'Departing', '入': 'Entering' };
+  const roundingMap = { '合口': 'Closed', '開口': 'Open', '開合中立': 'Neutral' };
+  
+  return `${toneMap[tone] || tone} tone, ${rime} rime, ${division} division, ${roundingMap[rounding] || rounding}`;
 }
 
 /**
- * 재건 결과 비교
+ * Create a mock 音韻地位 object for script execution
+ */
+function createMockPosition(position) {
+  return {
+    母: position.母,
+    呼: position.呼,
+    等: position.等,
+    類: position.類,
+    韻: position.韻,
+    聲: position.聲,
+    屬於: (expr) => {
+      // Simple matching for common expressions
+      if (expr.includes('母')) return expr.includes(position.母);
+      if (expr.includes('韻')) return expr.includes(position.韻);
+      if (expr.includes('等')) return expr.includes(position.等);
+      if (expr.includes('聲')) return expr.includes(position.聲);
+      return false;
+    },
+    判斷: (rules) => {
+      // Simple rule matching
+      for (const [condition, result] of rules) {
+        if (condition === '' || condition === null || condition === true) {
+          return result;
+        }
+        if (typeof condition === 'string' && condition.includes(position.母)) {
+          return result;
+        }
+        if (typeof condition === 'function' && condition()) {
+          return result;
+        }
+      }
+      return null;
+    },
+  };
+}
+
+/**
+ * Execute reconstruction script with mock position
+ */
+function executeScript(script, position) {
+  // Create a function that executes the script with the mock position
+  const scriptStr = script.toString();
+  
+  // Check if the script uses 音韻地位
+  if (scriptStr.includes('音韻地位')) {
+    // Create a function that sets 音韻地位 as a global-like variable
+    const mockPos = createMockPosition(position);
+    
+    // Create a wrapper function
+    const wrapper = new Function('音韻地位', `
+      const is = (...x) => 音韻地位.屬於(...x);
+      const when = (...x) => 音韻地位.判斷(...x);
+      ${scriptStr}
+    `);
+    
+    try {
+      return wrapper(mockPos);
+    } catch (e) {
+      console.error('Script execution error:', e);
+      return `Error: ${e.message}`;
+    }
+  }
+  
+  // If the script doesn't use 音韻地位, call it directly
+  return script(position);
+}
+
+/**
+ * Compare reconstruction results
  */
 function compareReconstruction(position, systemIds) {
   const results = [];
@@ -54,10 +125,10 @@ function compareReconstruction(position, systemIds) {
     }
     
     try {
-      const reconstruction = script.判斷(position);
+      const reconstruction = executeScript(script, position);
       results.push({
         system,
-        reconstruction,
+        reconstruction: reconstruction || 'No result',
         error: false,
       });
     } catch (error) {
@@ -73,7 +144,7 @@ function compareReconstruction(position, systemIds) {
 }
 
 /**
- * 결과 표시
+ * Display results
  */
 function displayResults(character, position, comparisonResults) {
   const resultsSection = document.getElementById('resultsSection');
@@ -82,11 +153,11 @@ function displayResults(character, position, comparisonResults) {
   const comparisonBody = document.getElementById('comparisonBody');
   const citationList = document.getElementById('citationList');
   
-  // 음운 위치 표시
+  // Display phonological position
   characterDisplay.textContent = character;
   phonologicalPosition.textContent = position;
   
-  // 비교 결과 테이블 채우기
+  // Fill comparison table
   comparisonBody.innerHTML = '';
   for (const result of comparisonResults) {
     const row = document.createElement('tr');
@@ -97,68 +168,84 @@ function displayResults(character, position, comparisonResults) {
     comparisonBody.appendChild(row);
   }
   
-  // 인용 정보 표시
+  // Display citation information
   citationList.innerHTML = '';
   for (const result of comparisonResults) {
     if (!result.error && result.system.citation) {
       const citationDiv = document.createElement('div');
       citationDiv.className = 'citation';
-      citationDiv.innerHTML = `<strong>${result.system.name} (${result.system.year}):</strong> ${result.system.citation}`;
+      const citation = result.system.citation;
+      let citationText = '';
+      
+      if (citation.type === 'book') {
+        citationText = `${citation.author}. (${citation.year}). <em>${citation.title}</em>. ${citation.publisher}${citation.address ? ', ' + citation.address : ''}.`;
+      } else if (citation.type === 'misc') {
+        citationText = `${citation.author}. ${citation.title}.${citation.url ? ' ' + citation.url : ''}`;
+      }
+      
+      citationDiv.innerHTML = `<strong>${result.system.name}:</strong> ${citationText}`;
       citationList.appendChild(citationDiv);
     }
   }
   
-  // 결과 섹션 표시
+  // Display results section
   resultsSection.style.display = 'block';
 }
 
 /**
- * 검색 처리
+ * Handle search
  */
 async function handleSearch() {
   const input = document.getElementById('characterInput');
   const character = input.value.trim();
   
   if (!character) {
-    alert('한자를 입력하세요.');
+    alert('Please enter a Chinese character.');
     return;
   }
   
-  // 임시: 샘플 데이터로 테스트
-  // 실제로는 tshet-uinh 데이터베이스에서 검색 필요
+  // Sample data for testing
   const samplePositions = {
-    '東': { tone: '平', rime: '東', division: '一', rounding: '合口' },
-    '同': { tone: '平', rime: '東', division: '一', rounding: '合口' },
-    '銅': { tone: '平', rime: '東', division: '一', rounding: '合口' },
-    '童': { tone: '平', rime: '東', division: '一', rounding: '合口' },
-    '桐': { tone: '平', rime: '東', division: '一', rounding: '合口' },
-    '瞳': { tone: '平', rime: '東', division: '一', rounding: '合口' },
-    '筒': { tone: '平', rime: '東', division: '一', rounding: '合口' },
-    '彤': { tone: '平', rime: '東', division: '一', rounding: '合口' },
-    '筍': { tone: '上', rime: '東', division: '一', rounding: '合口' },
-    '中': { tone: '平', rime: '東', division: '三', rounding: '合口' },
-    '衷': { tone: '平', rime: '東', division: '三', rounding: '合口' },
-    '忠': { tone: '平', rime: '東', division: '三', rounding: '合口' },
-    '衆': { tone: '去', rime: '東', division: '三', rounding: '合口' },
+    '東': { tone: '平', rime: '東', division: '一', rounding: '合口', initial: '幫' },
+    '同': { tone: '平', rime: '東', division: '一', rounding: '合口', initial: '定' },
+    '銅': { tone: '平', rime: '東', division: '一', rounding: '合口', initial: '定' },
+    '童': { tone: '平', rime: '東', division: '一', rounding: '合口', initial: '定' },
+    '桐': { tone: '平', rime: '東', division: '一', rounding: '合口', initial: '定' },
+    '瞳': { tone: '平', rime: '東', division: '一', rounding: '合口', initial: '定' },
+    '筒': { tone: '平', rime: '東', division: '一', rounding: '合口', initial: '定' },
+    '彤': { tone: '平', rime: '東', division: '一', rounding: '合口', initial: '定' },
+    '筍': { tone: '上', rime: '東', division: '一', rounding: '合口', initial: '心' },
+    '中': { tone: '平', rime: '東', division: '三', rounding: '合口', initial: '知' },
+    '衷': { tone: '平', rime: '東', division: '三', rounding: '合口', initial: '知' },
+    '忠': { tone: '平', rime: '東', division: '三', rounding: '合口', initial: '知' },
+    '衆': { tone: '去', rime: '東', division: '三', rounding: '合口', initial: '章' },
+    '水': { tone: '上', rime: '脂', division: '三', rounding: '合口', initial: '書' },
+    '山': { tone: '平', rime: '刪', division: '二', rounding: '開口', initial: '生' },
+    '人': { tone: '平', rime: '真', division: '三', rounding: '開口', initial: '日' },
+    '天': { tone: '平', rime: '先', division: '四', rounding: '開口', initial: '透' },
+    '日': { tone: '入', rime: '質', division: '三', rounding: '開口', initial: '日' },
+    '月': { tone: '入', rime: '月', division: '三', rounding: '合口', initial: '疑' },
+    '風': { tone: '平', rime: '東', division: '三', rounding: '合口', initial: '非' },
+    '雲': { tone: '平', rime: '文', division: '三', rounding: '合口', initial: '云' },
   };
   
   const positionData = samplePositions[character];
   if (!positionData) {
-    alert(`${character}에 대한 데이터를 찾을 수 없습니다.`);
+    alert(`No data found for "${character}". Try: 東, 同, 中, 山, 人, 天, 日, 月, 風, 雲`);
     return;
   }
   
-  // 음운 위치 생성
+  // Create phonological position
   const position = {
-    母: '幫', // 임시
-    呼: positionData.rounding === '合口' ? '合' : '開',
+    母: positionData.initial,
+    呼: positionData.rounding === '合口' ? '合' : positionData.rounding === '開口' ? '開' : null,
     等: positionData.division,
     類: null,
     韻: positionData.rime,
     聲: positionData.tone,
   };
   
-  // 비교 실행
+  // Execute comparison
   const positionString = getPositionString(
     positionData.tone,
     positionData.rime,
@@ -168,12 +255,12 @@ async function handleSearch() {
   
   const comparisonResults = compareReconstruction(position, defaultSystems.map(s => s.id));
   
-  // 결과 표시
+  // Display results
   displayResults(character, positionString, comparisonResults);
 }
 
 /**
- * 이벤트 리스너 설정
+ * Set up event listeners
  */
 function setupEventListeners() {
   const searchButton = document.getElementById('searchButton');
@@ -189,12 +276,12 @@ function setupEventListeners() {
 }
 
 /**
- * 애플리케이션 초기화
+ * Initialize application
  */
 function init() {
   setupEventListeners();
-  console.log('중고음 재건 비교 애플리케이션 초기화됨');
+  console.log('Middle Chinese Reconstruction Comparison initialized');
 }
 
-// DOM 로드 완료 시 초기화
+// Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', init);

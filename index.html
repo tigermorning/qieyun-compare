@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <title>중고음 재건 비교</title>
+  <title>Middle Chinese Reconstruction Comparison</title>
   <style>
     * {
       box-sizing: border-box;
@@ -240,8 +240,8 @@
 </head>
 <body>
   <header>
-    <h1>중고음 재건 비교</h1>
-    <p class="subtitle">Middle Chinese Phonological Reconstruction Comparison</p>
+    <h1>Middle Chinese Reconstruction Comparison</h1>
+    <p class="subtitle">Compare phonological reconstructions across multiple scholarly systems</p>
   </header>
   
   <main>
@@ -251,10 +251,10 @@
           type="text" 
           class="search-input" 
           id="characterInput"
-          placeholder="한자를 입력하세요 (예: 東)"
+          placeholder="Enter a Chinese character (e.g., 東)"
           maxlength="1"
         >
-        <button class="search-button" id="searchButton">검색</button>
+        <button class="search-button" id="searchButton">Search</button>
       </div>
     </section>
     
@@ -262,14 +262,14 @@
       <div class="position-display" id="positionDisplay">
         <div class="character" id="characterDisplay"></div>
         <div class="phonological-position" id="phonologicalPosition"></div>
-        <div class="source">tshet-uinh 데이터베이스 기반</div>
+        <div class="source">Based on tshet-uinh database</div>
       </div>
       
       <table class="comparison-table" id="comparisonTable">
         <thead>
           <tr>
-            <th>체계</th>
-            <th>재건 결과</th>
+            <th>System</th>
+            <th>Reconstruction</th>
           </tr>
         </thead>
         <tbody id="comparisonBody">
@@ -277,20 +277,20 @@
       </table>
       
       <section class="citation-section" id="citationSection">
-        <h2>인용 정보</h2>
+        <h2>Citations</h2>
         <div id="citationList"></div>
       </section>
       
       <section class="same-position-section" id="samePositionSection">
-        <h2>동일 음운 위치 문자들</h2>
+        <h2>Characters in Same Position</h2>
         <div class="character-list" id="characterList"></div>
       </section>
     </section>
   </main>
   
   <footer>
-    <p>중고음 재건 비교 도구 | qieyun-compare</p>
-    <p>tshet-uinh 데이터베이스 기반 | © 2026</p>
+    <p>Middle Chinese Reconstruction Comparison Tool | qieyun-compare</p>
+    <p>Based on tshet-uinh database | © 2026</p>
   </footer>
   
   <script type="module" src="app.js"></script>
