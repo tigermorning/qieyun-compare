@@ -91,6 +91,28 @@
       }
     },
     {
+      "id": "zhengzhang",
+      "name": "Zhengzhang (鄭張尚芳)",
+      "author": "Zhengzhang Shangfang (鄭張尚芳)",
+      "year": 2002,
+      "title": "上古音系",
+      "publisher": "上海教育出版社",
+      "type": "reconstruction",
+      "period": "middle-chinese",
+      "language": "zh",
+      "derivationScript": "zhengzhang",
+      "derivationOptions": {},
+      "default": true,
+      "note": "Middle Chinese reconstruction from Zhengzhang-Pan system. Data from Tiukha/tjuqkox.",
+      "citation": {
+        "type": "book",
+        "author": "鄭張尚芳",
+        "title": "上古音系",
+        "publisher": "上海教育出版社",
+        "year": 2002
+      }
+    },
+    {
       "id": "wangli1957",
       "name": "Wang Li (1957)",
       "author": "Wang Li (王力)",
@@ -135,22 +157,17 @@
       }
     }
   ],
-  "defaults": ["baxter1992", "pan2000", "unt", "msoeg"],
+  "defaults": ["baxter1992", "pan2000", "zhengzhang", "unt", "msoeg"],
   "historicalOrder": [
     "karlgren",
     "wangli1957",
     "baxter1992",
     "pan2000",
+    "zhengzhang",
     "unt",
     "msoeg"
   ],
   "excluded": [
-    {
-      "id": "zhengzhang2002",
-      "name": "Zhengzhang (2002)",
-      "reason": "Old Chinese reconstruction, not Middle Chinese. Deferred to future project.",
-      "futureProject": "qieyun-oc"
-    },
     {
       "id": "baxtersagart2014",
       "name": "Baxter-Sagart (2014)",
