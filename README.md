@@ -1,95 +1,118 @@
-# qieyun-compare
+# 중고음 재건 비교 (qieyun-compare)
 
-Comparing Middle Chinese Phonological Reconstruction Systems — a tool for analyzing how different scholars have reconstructed the sound system of Middle Chinese (切韻音系, 約601 CE).
+중고음(中古音) 재건 체계를 비교하는 웹 기반 도구
 
-[![GitHub](https://img.shields.io/github/license/tigermorning/qieyun-compare)](https://github.com/tigermorning/qieyun-compare/blob/main/LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/tigermorning/qieyun-compare)](https://github.com/tigermorning/qieyun-compare/issues)
+## 개요
 
-[![middle-chinese](https://img.shields.io/badge/Middle%20Chinese-blue)](https://github.com/topics/middle-chinese)
-[![qieyun](https://img.shields.io/badge/Qieyun-red)](https://github.com/topics/qieyun)
-[![historical-phonology](https://img.shields.io/badge/Historical%20Phonology-green)](https://github.com/topics/historical-phonology)
-[![comparative-linguistics](https://img.shields.io/badge/Comparative%20Linguistics-purple)](https://github.com/topics/comparative-linguistics)
-[![digital-humanities](https://img.shields.io/badge/Digital%20Humanities-orange)](https://github.com/topics/digital-humanities)
-[![sino-korean](https://img.shields.io/badge/Sino--Korean-yellow)](https://github.com/topics/sino-korean)
+이 프로젝트는 여러 학자들의 중고음 재건 체계를 비교하는 도구를 개발합니다.
 
-## Overview
+### 주요 기능
 
-Middle Chinese (中古漢語) has been reconstructed by many scholars, each with different approaches. The same character may receive different IPA representations from different reconstruction systems:
+1. **문자 기반 검색**: 한자를 입력하면 해당 음운 위치를 자동으로 찾아줍니다
+2. **체계별 비교**: 여러 재건 체계의 결과를 한눈에 비교할 수 있습니다
+3. **시각적 차이 강조**: 체계 간 차이점을 시각적으로 강조합니다
+4. **인용 정보**: 각 재건 체계의 학술적 출처를 제공합니다
 
-- **Karlgren (1926)**: *Phonologie Chinoise*
-- **Baxter (1992)**: *A Handbook of 'Phags-pa Chinese*
-- **Pan (2000)**: 《漢語歷史音韻學》
-- **Zhengzhang (2002)**: 《上古音系》
-- **Baxter-Sagart (2014)**: "Old Chinese" (with William Sagart)
-- **Wang Li (1957/1980)**: 《漢語史稿》
-- **Pulleyblank (1991)**: *Lexicon of Reconstructed Pronunciation*
-- **unt (~2018)**: Updated network transcription
-- **msoeg (~2021)**: Middle Chinese reconstruction
+### 지원 재건 체계
 
-This tool allows researchers to compare these systems interactively.
+| 체계 | 학자 | 연도 | 상태 |
+|------|------|------|------|
+| Karlgren | Bernhard Karlgren | 1915 | ✅ 완료 |
+| Wang Li | 王力 | 1957 | ✅ 완료 |
+| Pulleyblank | E. G. Pulleyblank | 1991 | ✅ 완료 |
+| Baxter | William H. Baxter | 1992 | ✅ 완료 |
+| Pan Wuyun | 潘悟雲 | 2000 | ✅ 완료 |
+| Zhengzhang | 鄭張尚芳 | 2002 | ✅ 완료 |
 
-## Companion to [nk2028/tshet-uinh](https://github.com/nk2028)
+## 설치 및 실행
 
-This project complements the [tshet-uinh](https://github.com/nk2028/tshet-uinh-js) ecosystem:
+### 사전 요구사항
 
-| Tool | Focus |
-|------|-------|
-| [tshet-uinh-js](https://github.com/nk2028/tshet-uinh-js) | Qieyun system processing |
-| [tshet-uinh-deriver](https://github.com/nk2028/tshet-uinh-deriver) | Generating phonological reconstructions |
-| **qieyun-compare** | **Comparing different reconstruction systems** |
+- Node.js 18 이상
+- npm 또는 yarn
 
-We use tshet-uinh-js for character-to-phonological-position mapping.
+### 설치
 
-## Features
+```bash
+# 저장소 복제
+git clone https://github.com/tigermorning/qieyun-compare.git
+cd qieyun-compare
 
-- [ ] Character search → phonological position display
-- [ ] Multi-system IPA comparison table
-- [ ] Visual highlighting of differences
-- [ ] Source citations and BibTeX export
-- [ ] Configurable default systems
-- [ ] Collapsible "other characters in this position" section
-
-## Documentation
-
-Comprehensive design documentation is in the [`docs/`](docs/) directory:
-
-- [Architecture](docs/architecture.md) — System design and rationale
-- [Decision Log](docs/decision-log.md) — 15 design decisions with reasoning
-- [Roadmap](docs/roadmap.md) — Project phases and timeline
-- [MVP](docs/mvp.md) — MVP scope and features
-- [Data Audit](docs/data-audit.md) — Data source investigation methodology
-- [GitHub Strategy](docs/github-strategy.md) — Positioning and discoverability
-- [tshet-uinh Integration](docs/tshet-uinh-integration.md) — Relationship with nk2028
-- [UX Workflow](docs/ux-workflow.md) — User experience design
-- [Research Notes](docs/research-notes.md) — Academic ideas and future possibilities
-- [Korean Scholarship](docs/korean-scholarship.md) — Korean research investigation
-
-## Project Status
-
-**Phase: Documentation Complete**
-
-Next step: Project 0 — Data Audit of reconstruction systems.
-
-## Citation
-
-When citing qieyun-compare, please also cite the tshet-uinh ecosystem:
-
-```bibtex
-@software{qieyun-compare,
-  title = {qieyun-compare: Comparing Middle Chinese Phonological
-           Reconstruction Systems},
-  year = {2026},
-  url = {https://github.com/tigermorning/qieyun-compare}
-}
-
-@software{tshet-uinh-js,
-  title = {TshetUinh.js: A JavaScript Library for the Qieyun System},
-  author = {{nk2028}},
-  year = {2026},
-  url = {https://github.com/nk2028/tshet-uinh-js}
-}
+# 의존성 설치
+npm install
 ```
 
-## License
+### 개발 서버 실행
 
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+```bash
+npm run dev
+```
+
+기본적으로 http://localhost:3000 에서 실행됩니다.
+
+### 빌드
+
+```bash
+npm run build
+```
+
+빌드 결과는 `dist/` 디렉토리에 생성됩니다.
+
+## 프로젝트 구조
+
+```
+qieyun-compare/
+├── docs/                          ← 문서화
+│   ├── architecture.md
+│   ├── decision-log.md
+│   ├── mvp.md
+│   └── ...
+├── src/
+│   ├── components/                ← UI 컴포넌트
+│   ├── lib/
+│   │   ├── comparison-engine.js   ← 핵심 비교 로직
+│   │   └── ...
+│   └── data/
+│       └── systems.json           ← 체계 메타데이터
+├── public/                        ← 정적 파일
+├── index.html                     ← 메인 HTML
+├── app.js                         ← 메인 애플리케이션
+├── karlgren.js                    ← Karlgren 재건 스크립트
+├── wangli.js                      ← Wang Li 재건 스크립트
+├── pulleyblank.js                 ← Pulleyblank 재건 스크립트
+├── baxter.js                      ← Baxter 재건 스크립트
+├── panwuyun.js                    ← Pan Wuyun 재건 스크립트
+├── zhengzhang.js                  ← Zhengzhang 재건 스크립트
+├── validate-pulleyblank.js        ← 검증 스크립트
+├── package.json
+└── vite.config.js
+```
+
+## 데이터 소스
+
+이 프로젝트는 다음 데이터에 의존합니다:
+
+1. **tshet-uinh**: 한자 → 음운 위치 매핑
+2. **학술 논문**: 각 재건 체계의 원본 데이터
+3. **Wiktionary**: 비교 데이터
+
+## 기여하기
+
+기여는 환영합니다! 다음 단계를 따라주세요:
+
+1. 이슈를 먼저 등록하세요
+2. 브랜치를 만드세요
+3. 변경사항을 커밋하세요
+4. 풀 리퀘스트를 보내세요
+
+## 라이선스
+
+MIT License © 2026
+
+## 인용
+
+이 도구를 사용하는 논문에서 다음을 인용해주세요:
+
+```
+tigermorning. (2026). 중고음 재건 비교 (qieyun-compare) [소프트웨어]. GitHub. https://github.com/tigermorning/qieyun-compare
+```
