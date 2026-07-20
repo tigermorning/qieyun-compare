@@ -60,7 +60,8 @@
       "language": "en",
       "derivationScript": "unt",
       "derivationOptions": {},
-      "default": true,
+      "default": false,
+      "note": "Available via derivation script, but not included in defaults due to unknown year.",
       "citation": {
         "type": "misc",
         "author": "unt",
@@ -81,35 +82,14 @@
       "language": "en",
       "derivationScript": "msoeg_v8",
       "derivationOptions": {},
-      "default": true,
+      "default": false,
+      "note": "Available via derivation script, but not included in defaults due to unknown year.",
       "citation": {
         "type": "misc",
         "author": "msoeg",
         "title": "msoeg's Reconstruction of the Qieyun System V8",
         "year": null,
         "url": "https://github.com/nk2028"
-      }
-    },
-    {
-      "id": "zhengzhang",
-      "name": "Zhengzhang (鄭張尚芳)",
-      "author": "Zhengzhang Shangfang (鄭張尚芳)",
-      "year": 2002,
-      "title": "上古音系",
-      "publisher": "上海教育出版社",
-      "type": "reconstruction",
-      "period": "middle-chinese",
-      "language": "zh",
-      "derivationScript": "zhengzhang",
-      "derivationOptions": {},
-      "default": true,
-      "note": "Middle Chinese reconstruction from Zhengzhang-Pan system. Data from Tiukha/tjuqkox.",
-      "citation": {
-        "type": "book",
-        "author": "鄭張尚芳",
-        "title": "上古音系",
-        "publisher": "上海教育出版社",
-        "year": 2002
       }
     },
     {
@@ -124,8 +104,7 @@
       "language": "zh",
       "derivationScript": "wangli",
       "derivationOptions": {},
-      "default": false,
-      "note": "Available via derivation script, but not included in defaults.",
+      "default": true,
       "citation": {
         "type": "book",
         "author": "王力",
@@ -138,16 +117,15 @@
       "id": "karlgren",
       "name": "Karlgren",
       "author": "Bernhard Karlgren",
-      "year": null,
-      "title": "Karlgren's Reconstruction",
-      "publisher": null,
+      "year": 1915,
+      "title": "Phonologie Chinoise",
+      "publisher": "Bibliotheca Indica",
       "type": "reconstruction",
       "period": "middle-chinese",
       "language": "en",
       "derivationScript": "karlgren",
       "derivationOptions": {},
-      "default": false,
-      "note": "Available via derivation script, but not included in defaults.",
+      "default": true,
       "citation": {
         "type": "book",
         "author": "Karlgren, Bernhard",
@@ -155,12 +133,35 @@
         "publisher": "Bibliotheca Indica",
         "year": 1915
       }
+    },
+    {
+      "id": "pulleyblank1991",
+      "name": "Pulleyblank (1991)",
+      "author": "Edwin G. Pulleyblank",
+      "year": 1991,
+      "title": "Lexicon of Reconstructed Pronunciation in Early Middle Chinese, Late Middle Chinese, and Early Mandarin",
+      "publisher": "University of British Columbia Press",
+      "type": "reconstruction",
+      "period": "middle-chinese",
+      "language": "en",
+      "derivationScript": "pulleyblank",
+      "derivationOptions": {},
+      "default": true,
+      "citation": {
+        "type": "book",
+        "author": "Pulleyblank, Edwin G.",
+        "title": "Lexicon of Reconstructed Pronunciation in Early Middle Chinese, Late Middle Chinese, and Early Mandarin",
+        "publisher": "University of British Columbia Press",
+        "address": "Vancouver",
+        "year": 1991
+      }
     }
   ],
-  "defaults": ["baxter1992", "pan2000", "zhengzhang", "unt", "msoeg"],
+  "defaults": ["karlgren", "wangli1957", "pulleyblank1991", "baxter1992", "pan2000", "zhengzhang"],
   "historicalOrder": [
     "karlgren",
     "wangli1957",
+    "pulleyblank1991",
     "baxter1992",
     "pan2000",
     "zhengzhang",
@@ -173,12 +174,6 @@
       "name": "Baxter-Sagart (2014)",
       "reason": "Old Chinese reconstruction, not Middle Chinese. Deferred to future project.",
       "futureProject": "qieyun-oc"
-    },
-    {
-      "id": "pulleyblank1991",
-      "name": "Pulleyblank (1991)",
-      "reason": "No derivation script available. May be added in future.",
-      "futureProject": "qieyun-compare"
     }
   ]
 }
