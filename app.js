@@ -38,71 +38,13 @@ function getPositionString(tone, rime, division, rounding) {
 }
 
 /**
- * Create a mock 音韻地位 object for script execution
- */
-function createMockPosition(position) {
-  return {
-    母: position.母,
-    呼: position.呼,
-    等: position.等,
-    類: position.類,
-    韻: position.韻,
-    聲: position.聲,
-    屬於: (expr) => {
-      // Simple matching for common expressions
-      if (expr.includes('母')) return expr.includes(position.母);
-      if (expr.includes('韻')) return expr.includes(position.韻);
-      if (expr.includes('等')) return expr.includes(position.等);
-      if (expr.includes('聲')) return expr.includes(position.聲);
-      return false;
-    },
-    判斷: (rules) => {
-      // Simple rule matching
-      for (const [condition, result] of rules) {
-        if (condition === '' || condition === null || condition === true) {
-          return result;
-        }
-        if (typeof condition === 'string' && condition.includes(position.母)) {
-          return result;
-        }
-        if (typeof condition === 'function' && condition()) {
-          return result;
-        }
-      }
-      return null;
-    },
-  };
-}
-
-/**
- * Execute reconstruction script with mock position
+ * Execute reconstruction script
  */
 function executeScript(script, position) {
-  // Create a function that executes the script with the mock position
-  const scriptStr = script.toString();
-  
-  // Check if the script uses 音韻地位
-  if (scriptStr.includes('音韻地位')) {
-    // Create a function that sets 音韻地位 as a global-like variable
-    const mockPos = createMockPosition(position);
-    
-    // Create a wrapper function
-    const wrapper = new Function('音韻地位', `
-      const is = (...x) => 音韻地位.屬於(...x);
-      const when = (...x) => 音韻地位.判斷(...x);
-      ${scriptStr}
-    `);
-    
-    try {
-      return wrapper(mockPos);
-    } catch (e) {
-      console.error('Script execution error:', e);
-      return `Error: ${e.message}`;
-    }
+  if (!script || typeof script.判斷 !== 'function') {
+    throw new Error('Script does not export 判斷 function');
   }
-  
-  // If the script doesn't use 音韻地位, call it directly
-  return script(position);
+  return script.判斷(position);
 }
 
 /**
