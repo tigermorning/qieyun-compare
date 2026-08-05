@@ -15,9 +15,10 @@
  * @version 1.0.0
  */
 
-const fs = require('fs');
-const path = require('path');
-const { Flag, Severity, ReviewStatus, ValidationReport, ReportMetadata } = require('./lib/flag-structure');
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { Flag, Severity, ReviewStatus, ValidationReport, ReportMetadata } from './lib/flag-structure.js';
 
 // ============================================================================
 // 설정
@@ -38,19 +39,19 @@ const CONFIG = {
  * 재건 스크립트를 로드합니다.
  * tshet-uinh 환경에서 실행될 때만 작동합니다.
  */
-function loadDerivationScripts() {
+async function loadDerivationScripts() {
   const scripts = {};
-  
+
   try {
     // pulleyblank.js
-    scripts.pulleyblank = require('./pulleyblank.js');
+    scripts.pulleyblank = await import('./pulleyblank.js');
   } catch (e) {
     console.warn('pulleyblank.js 로드 실패:', e.message);
   }
 
   try {
     // zhengzhang.js
-    scripts.zhengzhang = require('./zhengzhang.js');
+    scripts.zhengzhang = await import('./zhengzhang.js');
   } catch (e) {
     console.warn('zhengzhang.js 로드 실패:', e.message);
   }
@@ -342,8 +343,13 @@ function simulateScholar(scholar, position) {
 // 실행
 // ============================================================================
 
-if (require.main === module) {
-  runValidation().catch(console.error);
+const isMainModule = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);
+
+if (isMainModule) {
+  runValidation().catch((e) => {
+    console.error(e);
+    process.exitCode = 1;
+  });
 }
 
-module.exports = { runValidation, compareIPA, determineSeverity };
+export { runValidation, compareIPA, determineSeverity, loadDerivationScripts };
