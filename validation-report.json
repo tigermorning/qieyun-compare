@@ -1,0 +1,271 @@
+{
+  "metadata": {
+    "generatedAt": "2026-09-06T03:47:12.101Z",
+    "scriptVersion": "1.0.0",
+    "totalPositions": 28
+  },
+  "summary": {
+    "highFlags": 0,
+    "mediumFlags": 21,
+    "lowFlags": 0,
+    "matchRate": {
+      "zhengzhang": 0.75,
+      "panwuyun": 0.75,
+      "baxter": 0.75
+    }
+  },
+  "flags": [
+    {
+      "id": "FLAG-001",
+      "position": "平聲 東韻 一等 合口",
+      "pulleyblank": "pwəwŋ",
+      "comparison": "zhengzhang",
+      "compareValue": "pwuŋ",
+      "difference": "medial/final",
+      "severity": "medium",
+      "reviewStatus": "수동 검토 필요",
+      "flag": true,
+      "note": "zhengzhang와의 비교에서 medial/final 차이 발견"
+    },
+    {
+      "id": "FLAG-002",
+      "position": "平聲 東韻 一等 合口",
+      "pulleyblank": "pwəwŋ",
+      "comparison": "panwuyun",
+      "compareValue": "pwuŋ",
+      "difference": "medial/final",
+      "severity": "medium",
+      "reviewStatus": "수동 검토 필요",
+      "flag": true,
+      "note": "panwuyun와의 비교에서 medial/final 차이 발견"
+    },
+    {
+      "id": "FLAG-003",
+      "position": "平聲 東韻 一等 合口",
+      "pulleyblank": "pwəwŋ",
+      "comparison": "baxter",
+      "compareValue": "pwuwng",
+      "difference": "medial/final",
+      "severity": "medium",
+      "reviewStatus": "수동 검토 필요",
+      "flag": true,
+      "note": "baxter와의 비교에서 medial/final 차이 발견"
+    },
+    {
+      "id": "FLAG-004",
+      "position": "平聲 東韻 一等 合口",
+      "pulleyblank": "twəwŋ",
+      "comparison": "zhengzhang",
+      "compareValue": "twuŋ",
+      "difference": "medial/final",
+      "severity": "medium",
+      "reviewStatus": "수동 검토 필요",
+      "flag": true,
+      "note": "zhengzhang와의 비교에서 medial/final 차이 발견"
+    },
+    {
+      "id": "FLAG-005",
+      "position": "平聲 東韻 一等 合口",
+      "pulleyblank": "twəwŋ",
+      "comparison": "panwuyun",
+      "compareValue": "twuŋ",
+      "difference": "medial/final",
+      "severity": "medium",
+      "reviewStatus": "수동 검토 필요",
+      "flag": true,
+      "note": "panwuyun와의 비교에서 medial/final 차이 발견"
+    },
+    {
+      "id": "FLAG-006",
+      "position": "平聲 東韻 一等 合口",
+      "pulleyblank": "twəwŋ",
+      "comparison": "baxter",
+      "compareValue": "twuwng",
+      "difference": "medial/final",
+      "severity": "medium",
+      "reviewStatus": "수동 검토 필요",
+      "flag": true,
+      "note": "baxter와의 비교에서 medial/final 차이 발견"
+    },
+    {
+      "id": "FLAG-007",
+      "position": "平聲 東韻 一等 合口",
+      "pulleyblank": "kwəwŋ",
+      "comparison": "zhengzhang",
+      "compareValue": "kwuŋ",
+      "difference": "medial/final",
+      "severity": "medium",
+      "reviewStatus": "수동 검토 필요",
+      "flag": true,
+      "note": "zhengzhang와의 비교에서 medial/final 차이 발견"
+    },
+    {
+      "id": "FLAG-008",
+      "position": "平聲 東韻 一等 合口",
+      "pulleyblank": "kwəwŋ",
+      "comparison": "panwuyun",
+      "compareValue": "kwuŋ",
+      "difference": "medial/final",
+      "severity": "medium",
+      "reviewStatus": "수동 검토 필요",
+      "flag": true,
+      "note": "panwuyun와의 비교에서 medial/final 차이 발견"
+    },
+    {
+      "id": "FLAG-009",
+      "position": "平聲 東韻 一等 合口",
+      "pulleyblank": "kwəwŋ",
+      "comparison": "baxter",
+      "compareValue": "kwuwng",
+      "difference": "medial/final",
+      "severity": "medium",
+      "reviewStatus": "수동 검토 필요",
+      "flag": true,
+      "note": "baxter와의 비교에서 medial/final 차이 발견"
+    },
+    {
+      "id": "FLAG-010",
+      "position": "平聲 支韻 三等 開口",
+      "pulleyblank": "piə̆",
+      "comparison": "zhengzhang",
+      "compareValue": "piᴇ",
+      "difference": "medial/final",
+      "severity": "medium",
+      "reviewStatus": "수동 검토 필요",
+      "flag": true,
+      "note": "zhengzhang와의 비교에서 medial/final 차이 발견"
+    },
+    {
+      "id": "FLAG-011",
+      "position": "平聲 支韻 三等 開口",
+      "pulleyblank": "piə̆",
+      "comparison": "panwuyun",
+      "compareValue": "piɛ",
+      "difference": "medial/final",
+      "severity": "medium",
+      "reviewStatus": "수동 검토 필요",
+      "flag": true,
+      "note": "panwuyun와의 비교에서 medial/final 차이 발견"
+    },
+    {
+      "id": "FLAG-012",
+      "position": "平聲 支韻 三等 開口",
+      "pulleyblank": "piə̆",
+      "comparison": "baxter",
+      "compareValue": "pjie",
+      "difference": "medial/final",
+      "severity": "medium",
+      "reviewStatus": "수동 검토 필요",
+      "flag": true,
+      "note": "baxter와의 비교에서 medial/final 차이 발견"
+    },
+    {
+      "id": "FLAG-013",
+      "position": "平聲 支韻 三等 開口",
+      "pulleyblank": "piə̆",
+      "comparison": "zhengzhang",
+      "compareValue": "piᴇ",
+      "difference": "medial/final",
+      "severity": "medium",
+      "reviewStatus": "수동 검토 필요",
+      "flag": true,
+      "note": "zhengzhang와의 비교에서 medial/final 차이 발견"
+    },
+    {
+      "id": "FLAG-014",
+      "position": "平聲 支韻 三等 開口",
+      "pulleyblank": "piə̆",
+      "comparison": "panwuyun",
+      "compareValue": "piɛ",
+      "difference": "medial/final",
+      "severity": "medium",
+      "reviewStatus": "수동 검토 필요",
+      "flag": true,
+      "note": "panwuyun와의 비교에서 medial/final 차이 발견"
+    },
+    {
+      "id": "FLAG-015",
+      "position": "平聲 支韻 三等 開口",
+      "pulleyblank": "piə̆",
+      "comparison": "baxter",
+      "compareValue": "pjie",
+      "difference": "medial/final",
+      "severity": "medium",
+      "reviewStatus": "수동 검토 필요",
+      "flag": true,
+      "note": "baxter와의 비교에서 medial/final 차이 발견"
+    },
+    {
+      "id": "FLAG-016",
+      "position": "平聲 支韻 三等 開口",
+      "pulleyblank": "kiə̆",
+      "comparison": "zhengzhang",
+      "compareValue": "kiᴇ",
+      "difference": "medial/final",
+      "severity": "medium",
+      "reviewStatus": "수동 검토 필요",
+      "flag": true,
+      "note": "zhengzhang와의 비교에서 medial/final 차이 발견"
+    },
+    {
+      "id": "FLAG-017",
+      "position": "平聲 支韻 三等 開口",
+      "pulleyblank": "kiə̆",
+      "comparison": "panwuyun",
+      "compareValue": "kiɛ",
+      "difference": "medial/final",
+      "severity": "medium",
+      "reviewStatus": "수동 검토 필요",
+      "flag": true,
+      "note": "panwuyun와의 비교에서 medial/final 차이 발견"
+    },
+    {
+      "id": "FLAG-018",
+      "position": "平聲 支韻 三等 開口",
+      "pulleyblank": "kiə̆",
+      "comparison": "baxter",
+      "compareValue": "kjie",
+      "difference": "medial/final",
+      "severity": "medium",
+      "reviewStatus": "수동 검토 필요",
+      "flag": true,
+      "note": "baxter와의 비교에서 medial/final 차이 발견"
+    },
+    {
+      "id": "FLAG-019",
+      "position": "平聲 支韻 三等 開口",
+      "pulleyblank": "kiə̆",
+      "comparison": "zhengzhang",
+      "compareValue": "kiᴇ",
+      "difference": "medial/final",
+      "severity": "medium",
+      "reviewStatus": "수동 검토 필요",
+      "flag": true,
+      "note": "zhengzhang와의 비교에서 medial/final 차이 발견"
+    },
+    {
+      "id": "FLAG-020",
+      "position": "平聲 支韻 三等 開口",
+      "pulleyblank": "kiə̆",
+      "comparison": "panwuyun",
+      "compareValue": "kiɛ",
+      "difference": "medial/final",
+      "severity": "medium",
+      "reviewStatus": "수동 검토 필요",
+      "flag": true,
+      "note": "panwuyun와의 비교에서 medial/final 차이 발견"
+    },
+    {
+      "id": "FLAG-021",
+      "position": "平聲 支韻 三等 開口",
+      "pulleyblank": "kiə̆",
+      "comparison": "baxter",
+      "compareValue": "kjie",
+      "difference": "medial/final",
+      "severity": "medium",
+      "reviewStatus": "수동 검토 필요",
+      "flag": true,
+      "note": "baxter와의 비교에서 medial/final 차이 발견"
+    }
+  ]
+}
